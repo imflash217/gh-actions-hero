@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "step-1: dump github context"
-        run: echo "${{ toJSON(github.event) }}" | jq
+        run: echo '${{ toJSON(github.event) }}' | jq
         shell: bash
       - name: "step-2: Create Comment"
         uses: peter-evans/create-or-update-comment@v1
         with:
-          issue-number: "${{github.event.issue.number}}"
+          issue-number: ${{github.event.issue.number}}
           body: |
             This is a multi-line test comment
             - With GitHub **Markdown** :sparkles:
